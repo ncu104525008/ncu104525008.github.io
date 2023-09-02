@@ -10,6 +10,7 @@
 </head>
 <body>
     <video id="preview"></video>
+    <div id="data"></div>
     <!-- 詢問是否允許開啟相機後，會顯示在這個元素裡 -->
     <!-- ---------- -->
     <!-- 以下程式面 -->
@@ -22,6 +23,11 @@
     // Notice:這邊注意一定要用<video>的標籤才能使用，詳情請看他的github API的部分解釋。
 
     scanner.addListener('scan', function(content) {
+        // 取得代表目標元素的參考
+        var targetDiv = document.getElementById('data');
+
+        // 更改內容
+        targetDiv.innerHTML = content;
         console.log(content);
     });
     //開始偵聽掃描事件，若有偵聽到印出內容。
